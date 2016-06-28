@@ -7,8 +7,8 @@ import java.util.*;
  * 2、读取键盘录入的数据到字符流缓冲区中。 3、读取缓冲区每一行数据并判断，如果是end就跳出，否则存储到list集合中。（进行异常处理）
  * 4、创建区分语言环境的比较器，调用Collections.sort()方法并传递比较器对集合进行排序。 5、遍历集合，打印到控制台。
  */
-class XinJian {
-	XinJian() {
+class NewList {
+	NewList() {
 		// 创建集合，将缓冲区数据存入集合中
 		List<String> list = new ArrayList<String>();
 		System.out.println("输入任意字符串,按回车继续，输入end结束");

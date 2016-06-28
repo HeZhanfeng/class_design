@@ -3,14 +3,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Jm implements ActionListener{
+public class UI implements ActionListener{
 	
 	JFrame f;
 	JButton b1,b2,b3,b4,b5,b6,b;
 	Container cp;
 	private JLabel label;
 
-	Jm(){
+	UI(){
 		f = new JFrame("业务员业绩管理系统");
 		f.setSize(360,455);//设置大小
 		
@@ -93,6 +93,6 @@ public class Jm implements ActionListener{
 	}
 	
 	public static void main(String[] args){
-		new Jm();
+		new UI();
 	}
 }
