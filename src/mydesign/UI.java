@@ -88,7 +88,7 @@ public class UI implements ActionListener{
 			
 		}
 		else {
-			System.exit(0);
+			System.exit(0);//ÍË³ö
 		}
 	}
 	
