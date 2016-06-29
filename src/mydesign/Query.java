@@ -24,7 +24,7 @@ class Query implements ActionListener{
 	String value;
 	Query(){
 		f = new JFrame("查询信息");
-		f.setSize(250,320);//设置大小
+		f.setSize(280,200);//设置大小
 		
 		cp = f.getContentPane();//加载面板
 		cp.setLayout(new FlowLayout());//更改布局方式
@@ -34,7 +34,7 @@ class Query implements ActionListener{
 		cp.add(label2);
 		cp.add(jtf);
 		
-		b = new JButton("提交信息");//创建按钮
+		b = new JButton("确定");//创建按钮
 		cp.add(b);//添加按钮
 		b.addActionListener(this);//添加监听机制
 		
@@ -49,7 +49,7 @@ class Query implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		
 		value = jtf.getText();//获取文本框输入的值
-		System.out.println("value="+value);
+		//System.out.println("value="+value);
 		try {
 
 			BufferedReader bfr=new BufferedReader(new InputStreamReader(
@@ -60,23 +60,24 @@ class Query implements ActionListener{
 				do {
 					a=bfr.readLine();
 					String[] strs = a.split(" ");
-					//String[] strs1 = {strs[0],strs[1],strs[2],strs[3],strs[4]};
-					//String b = Arrays.toString(strs1);//将strs1转成字符串b
-					//String c = "";
+					String[] strs1 = {strs[0],strs[1],strs[2],strs[3],strs[4]};
+					String c = "";
 				    //将strs1数组转成字符串a
-//					for(String j:strs1){
-//						c += j+" "; 
-//					}
-					System.out.println(strs[0]+strs[1]+strs[2]);
-					if(value!="1"){
-						System.out.println("和u会");
-							continue;
-						
+					for(String j:strs1){
+						c += j+" "; 
+					}
+					//System.out.println(strs[0]);
+					if(value.trim().equals(strs[0])||value.trim().equals(strs[1])){
+							//System.out.println(value.trim().equals(strs[0]));
+							label2 = new JLabel(c);
+							cp.add(label2);
+							jtf.setText("");
+							f.setVisible(true);//显示窗体
+							f.setLocationRelativeTo(null);//窗体居中
+							break;
 					}
 					else{
-						System.out.println("测试");
-						label2 = new JLabel(strs[1]);
-						cp.add(label2);
+						continue;
 					}
 				}while(a!=null);
 				

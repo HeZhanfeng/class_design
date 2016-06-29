@@ -18,7 +18,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 class QueryPay {
-	
 	JFrame f;
 	JButton b;
 	Container cp;
@@ -33,7 +32,7 @@ class QueryPay {
 				//比较器
 				new Comparator<String>(){
 					public int compare(String obj1,String obj2){
-						return obj1.compareTo(obj2);
+						return obj2.compareTo(obj1);
 					}
 				}
 				);
@@ -55,7 +54,7 @@ class QueryPay {
 			try {
 				while ((str = Ia.readLine())!=null){
 					String[] strs = str.split(" ");
-					String[] strs1 = {strs[0],strs[1],strs[2],strs[3]};
+					String[] strs1 = {strs[0],strs[1],strs[2],strs[3],strs[4]};
 					//String b = Arrays.toString(strs1);//将strs1转成字符串b
 					String a = "";
 					//将strs1数组转成字符串a
@@ -78,9 +77,9 @@ class QueryPay {
 	        Iterator<String> iter = keySet.iterator();
 	        while (iter.hasNext()) {
 	            String key = iter.next();
-	            label1 = new JLabel(map.get(key)+" 	"+key);
+	            label1 = new JLabel(map.get(key));
 	            cp.add(label1);
-	            //System.out.println(key + ":" + map.get(key));
+	            System.out.println(key + ":" + map.get(key));
 	        }			
 
 		} catch (FileNotFoundException e) {
