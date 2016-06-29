@@ -82,10 +82,11 @@ public class UI implements ActionListener{
 			
 		}
 		else if(e.getSource()==b5){
-			new Sort();
+			QueryPay qp = new QueryPay();
+			qp.pay();
 		}
 		else if(e.getSource()==b6){
-			
+			new QueryAll();
 		}
 		else {
 			System.exit(0);//ÍË³ö

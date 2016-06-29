@@ -5,18 +5,23 @@
  * */
 package mydesign;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
 import java.io.*;
 
-class Query {
+class Query implements ActionListener{
 	JFrame f;
 	JButton b;
 	Container cp;
 	String a = null;
 	JLabel label = null;
 	JLabel label1 = null;
+	JLabel label2 = null;
+	JTextField jtf = null;
+	String value;
 	Query(){
 		f = new JFrame("查询信息");
 		f.setSize(250,320);//设置大小
@@ -24,35 +29,69 @@ class Query {
 		cp = f.getContentPane();//加载面板
 		cp.setLayout(new FlowLayout());//更改布局方式
 		
+		label2 = new JLabel("请输入业务员编号或姓名:");
+		jtf = new JTextField(15);
+		cp.add(label2);
+		cp.add(jtf);
+		
+		b = new JButton("提交信息");//创建按钮
+		cp.add(b);//添加按钮
+		b.addActionListener(this);//添加监听机制
+		
 		label = new JLabel("编号"+"\0\0"+"姓名"+"\0\0"+"性别"+"\0\0"+"部门"+"\0\0"+"工资");
 		cp.add(label);
 		
+		
+		f.setVisible(true);//显示窗体
+		f.setLocationRelativeTo(null);//窗体居中
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		value = jtf.getText();//获取文本框输入的值
+		System.out.println("value="+value);
 		try {
 
-			BufferedReader Ia=new BufferedReader(new InputStreamReader(
+			BufferedReader bfr=new BufferedReader(new InputStreamReader(
 					new FileInputStream("D:/JavaCode/class_design/info.txt")));
 			
 			try {
 				
 				do {
-					a=Ia.readLine();					
-					label1 = new JLabel(a);
-					cp.add(label1);
+					a=bfr.readLine();
+					String[] strs = a.split(" ");
+					//String[] strs1 = {strs[0],strs[1],strs[2],strs[3],strs[4]};
+					//String b = Arrays.toString(strs1);//将strs1转成字符串b
+					//String c = "";
+				    //将strs1数组转成字符串a
+//					for(String j:strs1){
+//						c += j+" "; 
+//					}
+					System.out.println(strs[0]+strs[1]+strs[2]);
+					if(value!="1"){
+						System.out.println("和u会");
+							continue;
+						
+					}
+					else{
+						System.out.println("测试");
+						label2 = new JLabel(strs[1]);
+						cp.add(label2);
+					}
 				}while(a!=null);
 				
-				Ia.close();
+				bfr.close();
 				
-			} catch (IOException e) {
+			} catch (IOException e1) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				e1.printStackTrace();
 			}
 
-		} catch (FileNotFoundException e) {
+		} catch (FileNotFoundException e2) {
 					// TODO Auto-generated catch block
-					e.printStackTrace();
+					e2.printStackTrace();
 		}
-		f.setVisible(true);//显示窗体
-		f.setLocationRelativeTo(null);//窗体居中
+		
 	}
 
 }

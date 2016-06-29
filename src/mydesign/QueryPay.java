@@ -1,14 +1,24 @@
 package mydesign;
-import java.awt.*;
-import javax.swing.*;
-import java.io.*;
+
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
-class Sort {
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+class QueryPay {
+	
 	JFrame f;
 	JButton b;
 	Container cp;
@@ -17,10 +27,10 @@ class Sort {
 	JLabel label1 = null;
 	BufferedReader Ia;
 	Map<String,String> map;
-	Sort(){
-		// 创建集合，将缓冲区数据存入集合中
-		//List<String> list = new ArrayList<String>();
+	
+	public void pay(){
 		map = new TreeMap<String,String>(
+				//比较器
 				new Comparator<String>(){
 					public int compare(String obj1,String obj2){
 						return obj1.compareTo(obj2);
@@ -45,11 +55,15 @@ class Sort {
 			try {
 				while ((str = Ia.readLine())!=null){
 					String[] strs = str.split(" ");
-					if(strs.length!=5){
-						System.out.println("有数据错误"+str);
+					String[] strs1 = {strs[0],strs[1],strs[2],strs[3]};
+					//String b = Arrays.toString(strs1);//将strs1转成字符串b
+					String a = "";
+					//将strs1数组转成字符串a
+					for(String j:strs1){
+						a += j+"  "; 
 					}
 					try{
-						map.put(strs[0],strs[1]);
+						map.put(strs[4],a);
 					}
 					catch(Exception e){
 						System.out.println("有误");
@@ -60,32 +74,14 @@ class Sort {
 				e.printStackTrace();
 			}
 			
-			 Set<String> keySet = map.keySet();
-		        Iterator<String> iter = keySet.iterator();
-		        while (iter.hasNext()) {
-		            String key = iter.next();
-		            System.out.println(key + ":" + map.get(key));
-		        }			
-							
-					// 创建区分语言环境的比较器，调用sort方法并传递比较器对数组进行排序
-//					Collator cmp = Collator.getInstance(java.util.Locale.CHINA);
-//					Collections.sort(list, cmp);
-//					// 遍历集合，打印到控制台
-//					for (String str : list) {
-//						do {					
-//							label1 = new JLabel(str);
-//							cp.add(label1);
-//							try {
-//								str=Ia.readLine();
-//							} catch (IOException e) {
-//								// TODO 自动生成的 catch 块
-//								e.printStackTrace();
-//							}
-//						}while(str!=null);
-//						label1 = new JLabel(str);
-//						cp.add(label1);
-//					}
-			 
+			Set<String> keySet = map.keySet();
+	        Iterator<String> iter = keySet.iterator();
+	        while (iter.hasNext()) {
+	            String key = iter.next();
+	            label1 = new JLabel(map.get(key)+" 	"+key);
+	            cp.add(label1);
+	            //System.out.println(key + ":" + map.get(key));
+	        }			
 
 		} catch (FileNotFoundException e) {
 					// TODO Auto-generated catch block
@@ -103,6 +99,4 @@ class Sort {
 		f.setVisible(true);//显示窗体
 		f.setLocationRelativeTo(null);//窗体居中
 	}
-
 }
-
