@@ -87,65 +87,39 @@ class Insert implements ActionListener{
 			pw = new PrintWriter(new BufferedWriter(new FileWriter("info.txt",
 					true)));
 			ID = tf.getText();//获取ID文本框输入的值
-			//Pattern pattern = Pattern.compile("[0-9]");
+			name = tf1.getText();//获取姓名文本框输入的值
+			sex = tf2.getText();//获取姓名文本框输入的值
+			department = tf3.getText();//获取部门文本框输入的值
+			pay = tf4.getText();//获取工资文本框输入的值
 			//判空让Text的内容点上equals("");如果真表示没有输入内容，则提示。
-			if(ID.trim().equals("")){//trim()去掉空格
-				JOptionPane.showMessageDialog(null, "您没有输入编号!", "警告", JOptionPane.OK_OPTION);
+			if(ID.trim().equals("")||name.trim().equals("")||
+					sex.trim().equals("")||department.trim().equals("")||
+					pay.trim().equals("")){//trim()去掉空格
+				//警告提示
+				JOptionPane.showMessageDialog(null, "您的输入有误!", "警告", JOptionPane.OK_OPTION);
 			}
 			else{
 				pw.write(ID);
 				pw.write("\0");
-				pw.flush();
 				tf.setText("");
-			}
-			
-			name = tf1.getText();//获取姓名文本框输入的值
-			if(name.trim().equals("")){//trim()去掉空格
-				JOptionPane.showMessageDialog(null, "您没有输入姓名!", "警告", JOptionPane.OK_OPTION);
-			}
-			else{
+				
 				pw.write(name);
 				pw.write("\0");
-				pw.flush();
 				tf1.setText("");
-			}
-			
-			sex = tf2.getText();//获取姓名文本框输入的值
-			if(sex.trim().equals("")){//trim()去掉空格
-				JOptionPane.showMessageDialog(null, "您没有输入性别!", "警告", JOptionPane.OK_OPTION);
-			}
-			else if(sex.equals("男")||sex.equals("女")){
+				
 				pw.write(sex);
 				pw.write("\0");
-				pw.flush();
 				tf2.setText("");
-			}
-			else{
-				JOptionPane.showMessageDialog(null, "您输入的性别有误!", "警告", JOptionPane.OK_OPTION);
-			}
-			
-			department = tf3.getText();//获取部门文本框输入的值
-			if(department.trim().equals("")){//trim()去掉空格
-				JOptionPane.showMessageDialog(null, "您没有输入部门信息!", "警告", JOptionPane.OK_OPTION);
-			}
-			else{
+				
 				pw.write(department);
 				pw.write("\0");
-				pw.flush();
 				tf3.setText("");
-			}
-			
-			pay = tf4.getText();//获取工资文本框输入的值
-			if(pay.trim().equals("")){//trim()去掉空格
-				JOptionPane.showMessageDialog(null, "您没有输入工资!", "警告", JOptionPane.OK_OPTION);
-			}
-			else{
+				
 				pw.write(pay);
 				pw.write("\r\n");
 				pw.flush();
 				tf4.setText("");
-			}
-			
+			}			
 			
 		} 
 		catch (IOException e1) {
@@ -154,6 +128,7 @@ class Insert implements ActionListener{
 		}
 		// 关闭流资源
 		finally {
+			pw.flush();
 			pw.close();
 			
 		}

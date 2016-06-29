@@ -82,7 +82,7 @@ public class UI implements ActionListener{
 			
 		}
 		else if(e.getSource()==b5){
-			
+			new Sort();
 		}
 		else if(e.getSource()==b6){
 			
