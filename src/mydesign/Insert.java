@@ -3,7 +3,6 @@
  * */
 package mydesign;
 import javax.swing.*;
-
 import java.awt.*;
 import java.awt.event.*;
 import java.io.BufferedWriter;
@@ -99,20 +98,21 @@ class Insert implements ActionListener{
 				JOptionPane.showMessageDialog(null, "您的输入有误!", "警告", JOptionPane.OK_OPTION);
 			}
 			else{
-				pw.write(ID);
-				pw.write("\0");
+				
+				pw.write(ID.trim());
+				pw.write(" ");
 				tf.setText("");
 				
 				pw.write(name);
-				pw.write("\0");
+				pw.write(" ");
 				tf1.setText("");
 				
 				pw.write(sex);
-				pw.write("\0");
+				pw.write(" ");
 				tf2.setText("");
 				
 				pw.write(department);
-				pw.write("\0");
+				pw.write(" ");
 				tf3.setText("");
 				
 				pw.write(pay);
@@ -134,4 +134,5 @@ class Insert implements ActionListener{
 		}
 		
 	}
+	
 }

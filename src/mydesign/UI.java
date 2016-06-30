@@ -1,5 +1,6 @@
 package mydesign;
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -79,7 +80,7 @@ public class UI implements ActionListener{
 			new Query();
 		}
 		else if(e.getSource()==b4){
-			
+			new Delete();
 		}
 		else if(e.getSource()==b5){
 			QueryPay qp = new QueryPay();
@@ -91,6 +92,7 @@ public class UI implements ActionListener{
 		else {
 			System.exit(0);//ÍË³ö
 		}
+		
 	}
 	
 	public static void main(String[] args){

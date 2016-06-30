@@ -79,7 +79,7 @@ class QueryPay {
 	            String key = iter.next();
 	            label1 = new JLabel(map.get(key));
 	            cp.add(label1);
-	            System.out.println(key + ":" + map.get(key));
+	            //System.out.println(key + ":" + map.get(key));
 	        }			
 
 		} catch (FileNotFoundException e) {
