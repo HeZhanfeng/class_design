@@ -57,7 +57,7 @@ public class UI implements ActionListener{
 		cp.add(b6);//添加按钮
 		b6.addActionListener(this);//添加监听机制
 		
-		b7 = new JButton("7、          刷新删除");//创建按钮
+		b7 = new JButton("7、                     刷新删除");//创建按钮
 		b7.setPreferredSize(new Dimension(175,25));
 		cp.add(b7);//添加按钮
 		b7.addActionListener(this);//添加监听机制

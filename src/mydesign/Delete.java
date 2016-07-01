@@ -68,20 +68,9 @@ class Delete implements ActionListener{
 				do {
 					a=bfr.readLine();
 					String[] strs = a.split(" ");
-					//String[] strs1 = {strs[0],strs[1],strs[2],strs[3],strs[4]};
-//					String c = "";
-//				    //将strs1数组转成字符串a
-//					for(String j:strs1){
-//						c += j+" "; 
-//					}
-					//System.out.println(strs[0]);
-					
 			
 					if(value.trim().equals(strs[0])||value.trim().equals(strs[1])){
-							//System.out.println(value.trim().equals(strs[0]));
-							
-//							label2 = new JLabel(c);
-//							cp.add(label2);
+
 							jtf.setText("");
 							f.setVisible(true);//显示窗体
 							f.setLocationRelativeTo(null);//窗体居中

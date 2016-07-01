@@ -1,5 +1,6 @@
 *.class
 /bin
 /.settings
-/.classpath
-/.project
+*.classpath
+*.project
+*.gitignore

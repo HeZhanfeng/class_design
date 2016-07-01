@@ -39,7 +39,7 @@ class Insert implements ActionListener{
 	String inputValue = null;
 	
 	Insert(){
-		f = new JFrame("建立业务员信息表");
+		f = new JFrame("插入业务员信息表");
 		f.setSize(250,320);//设置大小
 		
 		cp = f.getContentPane();//加载面板
