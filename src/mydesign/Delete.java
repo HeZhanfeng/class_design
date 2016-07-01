@@ -7,7 +7,9 @@ package mydesign;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.*;
+
 import java.io.*;
 
 class Delete implements ActionListener{
@@ -22,7 +24,7 @@ class Delete implements ActionListener{
 	BufferedReader bfr = null;
 	String value;
 	PrintWriter tempFile = null;
-	Delete(){
+	public void delete(){
 		f = new JFrame("删除业务员信息");
 		f.setSize(280,200);//设置大小
 		
@@ -40,6 +42,7 @@ class Delete implements ActionListener{
 		
 		f.setVisible(true);//显示窗体
 		f.setLocationRelativeTo(null);//窗体居中
+		
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -60,7 +63,6 @@ class Delete implements ActionListener{
 			}
 			
 			//PrintWriter pw = new PrintWriter(new FileWriter("tempFile"));
-			
 			try {
 				
 				do {
@@ -92,6 +94,8 @@ class Delete implements ActionListener{
 					}
 				}while(a!=null);
 				
+				
+				
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -103,6 +107,9 @@ class Delete implements ActionListener{
 					e2.printStackTrace();
 		}
 		finally{
+			
+			
+			
 			try {
 				bfr.close();
 			} catch (IOException e1) {

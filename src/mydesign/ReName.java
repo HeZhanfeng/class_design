@@ -1,64 +1,65 @@
 package mydesign;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.*;
-import java.io.*;
 
-class ReName implements ActionListener{
-	JFrame f;
-	JButton b;
-	Container cp;
-	String a = null;
-	JLabel label = null;
-	JLabel label1 = null;
-	JLabel label2 = null;
-	JTextField jtf = null;
+import javax.swing.*;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
+class ReName {
 	BufferedReader bfr = null;
-	String value;
 	PrintWriter tempFile = null;
 	public void rename(){
-		f = new JFrame("删除业务员信息");
-		f.setSize(180,100);//设置大小
+//		try{
+//		    Thread thread = Thread.currentThread();
+//		    thread.sleep(1500);//暂停1.5秒后程序继续执行
+//		}catch (InterruptedException e3) {
+//		    // TODO Auto-generated catch block
+//		    e3.printStackTrace();
+//		}
+//		System.out.println("哈哈");
+		File fi = new File("D:/JavaCode/class_design/info.txt");
+		fi.delete();
 		
-		cp = f.getContentPane();//加载面板
-		cp.setLayout(new FlowLayout());//更改布局方式
+		File file = new File("D:/JavaCode/class_design/data.txt");
 		
-		//label2 = new JLabel("请输入您要删除的业务员编号或姓名:");
-		//jtf = new JTextField(15);
-		//cp.add(label2);
-		//cp.add(jtf);
+		File newFile = new File("D:/JavaCode/class_design/info.txt");
 		
-		b = new JButton("确定删除吗？");//创建按钮
-		cp.add(b);//添加按钮
-		b.addActionListener(this);//添加监听机制
+		if (!file.exists()) {
+	            System.out.println("文件不存在！: " + file);
+	    }
 		
-		f.setVisible(true);//显示窗体
-		f.setLocationRelativeTo(null);//窗体居中
+		if(file.renameTo(newFile)){
+			System.out.println("修改成功");
+		}
+		else{
+			System.out.println("修改失败");
+			
+		}
+		
+//			  try {
+//			   FileReader fr = new FileReader(file.getPath());
+//			   BufferedReader br = new BufferedReader(fr);
+//			   List list = new ArrayList();
+//			   String ss = "";
+//			   while ((ss = br.readLine()) != null)
+//			    list.add(ss);
+//			    fr.close();
+//			   return list;
+//			  } catch (Exception e) {
+//			   e.printStackTrace();
+//			  }
+//			return null;
+//			  
+//	}
+//	public void del(){
+//		ReName rn = new ReName();
+//		List l = rn.rename();
+//		l.remove(new Delete().value);
+//	}
 	}
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		
-			System.out.println("哈哈");
-			File file = new File("D:/JavaCode/class_design/data.txt");
-		
-			File newFile = new File("D:/JavaCode/class_design/info.txt");
-			
-			if (!file.exists() || newFile.isDirectory()) {
-
-		            System.out.println("File does not exist: " + file);
-		            return;
-		    }
-			
-			if(file.renameTo(newFile)){
-				System.out.println("修改成功");
-			}
-			else{
-				System.out.println("修改失败");
-			}
-			
-	}
-	
 }

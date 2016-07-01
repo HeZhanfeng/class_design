@@ -7,11 +7,15 @@ import java.awt.event.*;
 public class UI implements ActionListener{
 	
 	JFrame f;
-	JButton b1,b2,b3,b4,b5,b6,b;
+	JButton b1,b2,b3,b4,b5,b6,b,b7;
 	Container cp;
 	private JLabel label;
 
 	UI(){
+		
+//		ReName rn = new ReName();
+//		rn.rename();
+		
 		f = new JFrame("业务员业绩管理系统");
 		f.setSize(360,455);//设置大小
 		
@@ -53,6 +57,11 @@ public class UI implements ActionListener{
 		cp.add(b6);//添加按钮
 		b6.addActionListener(this);//添加监听机制
 		
+		b7 = new JButton("7、          刷新删除");//创建按钮
+		b7.setPreferredSize(new Dimension(175,25));
+		cp.add(b7);//添加按钮
+		b7.addActionListener(this);//添加监听机制
+		
 		b = new JButton("0、           退出管理系统");//创建按钮
 		b.setPreferredSize(new Dimension(175,25));
 		cp.add(b);//添加按钮
@@ -80,7 +89,11 @@ public class UI implements ActionListener{
 			new Query();
 		}
 		else if(e.getSource()==b4){
-			new Delete();
+			Delete d = new Delete();
+			d.delete();
+//			ReName rn = new ReName();
+//			rn.rename();
+			
 		}
 		else if(e.getSource()==b5){
 			QueryPay qp = new QueryPay();
@@ -89,8 +102,12 @@ public class UI implements ActionListener{
 		else if(e.getSource()==b6){
 			new QueryAll();
 		}
-		else {
+		else if(e.getSource()==b){
 			System.exit(0);//退出
+		}
+		else{
+			ReName rn = new ReName();
+			rn.rename();
 		}
 		
 	}
